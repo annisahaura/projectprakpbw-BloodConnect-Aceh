@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Permintaan Donor Darurat - BloodConnect Aceh</title>
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+<div class="layout-wrapper">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <div class="brand-icon">🩸</div>
+      <div class="sidebar-brand-text">Blood<span>Connect</span><br><small style="font-weight:400;font-size:0.7rem;color:var(--text-secondary)">Aceh</small></div>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section-label">Utama</div>
+      <a href="dashboard.html"><span class="nav-icon">🏠</span> Dashboard</a>
+      <a href="cari-donor.html"><span class="nav-icon">🔍</span> Cari Donor</a>
+      <a href="permintaan-darurat.html" class="active"><span class="nav-icon">🚨</span> Permintaan Darurat</a>
+      <div class="nav-section-label">Riwayat</div>
+      <a href="riwayat-permintaan.html"><span class="nav-icon">📋</span> Riwayat Permintaan</a>
+      <a href="permintaan-cocok.html"><span class="nav-icon">🩸</span> Permintaan Cocok</a>
+      <a href="riwayat-donor.html"><span class="nav-icon">📊</span> Riwayat Donor</a>
+      <div class="nav-section-label">Profil</div>
+      <a href="profil-donor.html"><span class="nav-icon">👤</span> Profil Donor</a>
+      <a href="edukasi.html"><span class="nav-icon">📚</span> Edukasi</a>
+      <a href="notifikasi.html"><span class="nav-icon">🔔</span> Notifikasi <span class="nav-badge">3</span></a>
+      <a href="pengaturan.html"><span class="nav-icon">⚙️</span> Pengaturan</a>
+      <div class="nav-section-label">Lainnya</div>
+      <a href="dashboard.html" style="color:var(--danger)"><span class="nav-icon">🚪</span> Keluar</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="avatar">AF</div>
+        <div class="sidebar-user-info">
+          <div class="sidebar-user-name">Ahmad Fauzi</div>
+          <div class="sidebar-user-role">Pendonor Aktif · A+</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+  <!-- MAIN CONTENT -->
+  <main class="main-content">
+    <div class="page-header">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+        <h1 class="page-title">Permintaan Donor Darurat</h1>
+      </div>
+      <a href="riwayat-permintaan.html" class="btn btn-ghost btn-sm">📋 Riwayat Permintaan</a>
+    </div>
+
+    <div class="page-content">
+
+      <div class="grid-2" style="align-items:start;gap:28px">
+
+        <!-- FORM -->
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">📝 Form Permintaan Darah</span>
+          </div>
+          <div class="card-body">
+            <form id="requestForm">
+              <div class="form-group">
+                <label class="form-label">Nama Pasien *</label>
+                <input type="text" class="form-control" id="reqPatient" placeholder="Nama lengkap pasien" required>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Golongan Darah *</label>
+                  <select class="form-control" id="reqBlood" required>
+                    <option value="">-- Pilih --</option>
+                    <option>A</option>
+                    <option>B</option>
+                    <option>AB</option>
+                    <option>O</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Rhesus *</label>
+                  <select class="form-control" id="reqRhesus" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="+">Positif (+)</option>
+                    <option value="-">Negatif (-)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Jumlah Kantong *</label>
+                  <input type="number" class="form-control" id="reqBags" placeholder="Contoh: 2" min="1" max="20" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Tingkat Urgensi *</label>
+                  <select class="form-control" id="reqUrgency" required>
+                    <option value="">-- Pilih --</option>
+                    <option value="Rendah">Rendah</option>
+                    <option value="Sedang">Sedang</option>
+                    <option value="Darurat">Darurat 🚨</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Nama Rumah Sakit *</label>
+                <input type="text" class="form-control" id="reqHospital" placeholder="Nama rumah sakit / klinik / PMI" required>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Lokasi (Kota/Kabupaten) *</label>
+                <select class="form-control" id="reqLocation" required>
+                  <option value="">-- Pilih Lokasi --</option>
+                  <option>Banda Aceh</option>
+                  <option>Aceh Besar</option>
+                  <option>Lhokseumawe</option>
+                  <option>Langsa</option>
+                  <option>Meulaboh</option>
+                  <option>Sigli</option>
+                  <option>Sabang</option>
+                  <option>Lhoksukon</option>
+                  <option>Lainnya</option>
+                </select>
+              </div>
+
+              <div class="divider"></div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label class="form-label">Nama Penanggung Jawab *</label>
+                  <input type="text" class="form-control" id="reqContact" placeholder="Nama PJ / keluarga" required>
+                </div>
+                <div class="form-group">
+                  <label class="form-label">Nomor Kontak *</label>
+                  <input type="tel" class="form-control" id="reqPhone" placeholder="08xxxxxxxxxx" required>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label">Catatan Tambahan</label>
+                <textarea class="form-control" id="reqNotes" rows="3" placeholder="Informasi tambahan yang perlu diketahui pendonor..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:8px">
+                🚨 Ajukan Permintaan Donor
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- INFO SIDEBAR -->
+        <div style="display:flex;flex-direction:column;gap:20px">
+
+          <!-- How it works -->
+          <div class="card" style="border:1px solid var(--red-200);background:var(--red-50)">
+            <div class="card-body">
+              <h5 style="margin-bottom:12px;color:var(--primary)">⚡ Proses Otomatis</h5>
+              <div class="alert alert-success" style="margin-bottom:0">
+                <span class="alert-icon">✅</span>
+                <div class="alert-content">
+                  <div class="alert-desc">Permintaan akan langsung ditampilkan kepada pendonor yang cocok berdasarkan golongan darah, rhesus, lokasi, dan status ketersediaan. <strong>Admin tidak perlu menyetujui permintaan satu per satu.</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tips -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">💡 Tips Permintaan Efektif</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:12px">
+                <div style="display:flex;gap:10px">
+                  <span style="color:var(--primary)">1.</span>
+                  <p class="text-sm">Pastikan golongan darah dan rhesus yang dibutuhkan sudah dikonfirmasi dari dokter atau lab.</p>
+                </div>
+                <div style="display:flex;gap:10px">
+                  <span style="color:var(--primary)">2.</span>
+                  <p class="text-sm">Sertakan nomor kontak yang aktif dan mudah dihubungi, terutama untuk kasus darurat.</p>
+                </div>
+                <div style="display:flex;gap:10px">
+                  <span style="color:var(--primary)">3.</span>
+                  <p class="text-sm">Pilih tingkat urgensi dengan tepat. "Darurat" hanya untuk kondisi yang benar-benar mendesak.</p>
+                </div>
+                <div style="display:flex;gap:10px">
+                  <span style="color:var(--primary)">4.</span>
+                  <p class="text-sm">Segera hubungi pendonor yang bersedia dan koordinasikan waktu donor ke rumah sakit.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Urgency Guide -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">📊 Panduan Tingkat Urgensi</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:10px">
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span class="badge badge-green">Rendah</span>
+                  <p class="text-sm">Kebutuhan darah untuk keperluan terjadwal atau persiapan. Tidak mendesak.</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span class="badge badge-yellow">Sedang</span>
+                  <p class="text-sm">Dibutuhkan dalam 1-3 hari ke depan. Segera namun tidak kritis.</p>
+                </div>
+                <div style="display:flex;gap:10px;align-items:flex-start">
+                  <span class="badge badge-red">Darurat</span>
+                  <p class="text-sm">Kondisi kritis, dibutuhkan segera atau dalam beberapa jam. Prioritas tertinggi.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Requests Preview -->
+          <div class="card">
+            <div class="card-header">
+              <span class="card-title">📋 Permintaan Aktif Saat Ini</span>
+            </div>
+            <div class="card-body">
+              <div style="display:flex;flex-direction:column;gap:8px">
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span class="text-sm">Total Aktif</span>
+                  <span class="badge badge-yellow font-bold">4 permintaan</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span class="text-sm">Status Darurat</span>
+                  <span class="badge badge-red font-bold">2 darurat</span>
+                </div>
+                <div style="display:flex;justify-content:space-between;align-items:center">
+                  <span class="text-sm">Sedang Diproses</span>
+                  <span class="badge badge-purple font-bold">1 ada pendonor</span>
+                </div>
+              </div>
+              <a href="riwayat-permintaan.html" class="btn btn-ghost btn-full btn-sm mt-12">Lihat Riwayat Saya ?</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<!-- MODAL: REQUEST SUCCESS -->
+<div class="modal-overlay" id="modalRequestSuccess">
+  <div class="modal" style="max-width:420px">
+    <div class="modal-body" style="text-align:center;padding:40px 32px">
+      <div style="font-size:3.5rem;margin-bottom:16px;animation:float-card 3s ease-in-out infinite">✅</div>
+      <h3 style="margin-bottom:8px;color:var(--text-strong)">Permintaan Berhasil Diajukan!</h3>
+      <p style="color:var(--text-secondary);font-size:0.9rem;margin-bottom:8px;line-height:1.6">Permintaan donor berhasil diajukan.</p>
+      <p style="color:var(--text-secondary);font-size:0.85rem;margin-bottom:24px;line-height:1.6"><strong style="color:var(--primary)">Pendonor yang sesuai</strong> akan segera mendapatkan informasi dan dapat menghubungi Anda secara langsung.</p>
+      <div style="display:flex;gap:10px;flex-direction:column">
+        <a href="riwayat-permintaan.html" class="btn btn-primary btn-full">📋 Lihat Riwayat Permintaan</a>
+        <button onclick="hideModal('modalRequestSuccess')" class="btn btn-ghost btn-full">Buat Permintaan Lain</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast-container"></div>
+<script src="assets/js/script.js"></script>
+<script>requireAuth();</script>
+</body>
+</html>
